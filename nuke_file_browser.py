@@ -1,9 +1,11 @@
 import sys
+import os
 
 # import nuke
 from PySide2.QtWidgets import *
 from PySide2.QtCore import *
 from PySide2.QtGui import *
+
 
 from ui import nuke_file_browser_ui
 
@@ -31,6 +33,7 @@ class NukeFileBrowser(nuke_file_browser_ui.Ui_MainWindow, QMainWindow):
         nuke_files = self.NukeFilescheckBox.isChecked()
         if nuke_files:
             self.ext_list.append(self.NukeFilescheckBox.text())
+            self.ext_list.append("*.nk~")
         mov_files = self.MOVFilescheckBox.isChecked()
         if mov_files:
             self.ext_list.append(self.MOVFilescheckBox.text())
@@ -48,9 +51,11 @@ class NukeFileBrowser(nuke_file_browser_ui.Ui_MainWindow, QMainWindow):
         self.model.setRootPath(QDir.rootPath())
         self.model.setNameFilters(self.ext_list)
         self.model.setNameFilterDisables(False)
+        self.model.setIconProvider(FileIconProvider())
         self.FileExplorerTreeView.setModel(self.model)
         self.FileExplorerTreeView.setSortingEnabled(True)
         self.FileExplorerTreeView.clicked.connect(self.selected_file_path)
+
 
     def context_menu(self):
         menu = QMenu()
@@ -64,6 +69,14 @@ class NukeFileBrowser(nuke_file_browser_ui.Ui_MainWindow, QMainWindow):
     def open_workfile(self):
         nuke.scriptOpen(self.file_path)
 
+
+class FileIconProvider(QFileIconProvider):
+    def icon(self, parameter):
+        if isinstance(parameter, QFileInfo):
+            info = parameter
+            if info.suffix() == "nk" or info.suffix() == "nk~":
+                return  QIcon("{}/icons/NukeXApp.ico".format(os.path.dirname(__file__)))
+        return super(FileIconProvider, self).icon(parameter)
 
 if __name__ == '__main__':
     app = QApplication()
