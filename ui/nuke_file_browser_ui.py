@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'nuke_file_browser_ui.ui',
 # licensing of 'nuke_file_browser_ui.ui' applies.
 #
-# Created: Sun Jun  6 12:22:00 2021
+# Created: Sun Jun  6 14:10:46 2021
 #      by: pyside2-uic  running on PySide2 5.13.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -17,6 +17,7 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
+        self.gridLayout.setContentsMargins(4, -1, 4, -1)
         self.gridLayout.setObjectName("gridLayout")
         self.frame = QtWidgets.QFrame(self.centralwidget)
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -49,7 +50,15 @@ class Ui_MainWindow(object):
         self.FileExplorerTreeView.setWordWrap(False)
         self.FileExplorerTreeView.setObjectName("FileExplorerTreeView")
         self.gridLayout_2.addWidget(self.FileExplorerTreeView, 1, 0, 1, 1)
-        self.gridLayout.addWidget(self.frame, 0, 0, 1, 1)
+        self.gridLayout.addWidget(self.frame, 1, 0, 1, 1)
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        font.setItalic(True)
+        self.label.setFont(font)
+        self.label.setObjectName("label")
+        self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -61,4 +70,5 @@ class Ui_MainWindow(object):
         self.MOVFilescheckBox.setText(QtWidgets.QApplication.translate("MainWindow", "*.mov", None, -1))
         self.JPGfilescheckBox.setText(QtWidgets.QApplication.translate("MainWindow", "*.jpg", None, -1))
         self.PNGfilesCheckbox.setText(QtWidgets.QApplication.translate("MainWindow", "*.png", None, -1))
+        self.label.setText(QtWidgets.QApplication.translate("MainWindow", " File Browser", None, -1))
 

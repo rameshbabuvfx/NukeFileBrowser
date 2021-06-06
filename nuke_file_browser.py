@@ -56,7 +56,6 @@ class NukeFileBrowser(nuke_file_browser_ui.Ui_MainWindow, QMainWindow):
         self.FileExplorerTreeView.setSortingEnabled(True)
         self.FileExplorerTreeView.clicked.connect(self.selected_file_path)
 
-
     def context_menu(self):
         menu = QMenu()
         open_comp = menu.addAction("Open Comp")
@@ -77,6 +76,7 @@ class FileIconProvider(QFileIconProvider):
             if info.suffix() == "nk" or info.suffix() == "nk~":
                 return  QIcon("{}/icons/NukeXApp.ico".format(os.path.dirname(__file__)))
         return super(FileIconProvider, self).icon(parameter)
+
 
 if __name__ == '__main__':
     app = QApplication()
