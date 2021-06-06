@@ -85,6 +85,9 @@
        </item>
        <item row="1" column="0">
         <widget class="QTreeView" name="FileExplorerTreeView">
+         <property name="styleSheet">
+          <string notr="true">QTreeView { selection-background-color: lightblue}</string>
+         </property>
          <property name="editTriggers">
           <set>QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed</set>
          </property>

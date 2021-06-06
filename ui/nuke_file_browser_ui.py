@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'nuke_file_browser_ui.ui',
 # licensing of 'nuke_file_browser_ui.ui' applies.
 #
-# Created: Sun Jun  6 14:10:46 2021
+# Created: Sun Jun  6 15:56:02 2021
 #      by: pyside2-uic  running on PySide2 5.13.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -45,6 +45,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout.addWidget(self.PNGfilesCheckbox)
         self.gridLayout_2.addLayout(self.horizontalLayout, 0, 0, 1, 1)
         self.FileExplorerTreeView = QtWidgets.QTreeView(self.frame)
+        self.FileExplorerTreeView.setStyleSheet("QTreeView { selection-background-color: lightblue}")
         self.FileExplorerTreeView.setEditTriggers(QtWidgets.QAbstractItemView.DoubleClicked|QtWidgets.QAbstractItemView.EditKeyPressed)
         self.FileExplorerTreeView.setDragEnabled(True)
         self.FileExplorerTreeView.setWordWrap(False)

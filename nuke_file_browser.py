@@ -1,7 +1,7 @@
 import sys
 import os
 
-import nuke
+# import nuke
 from PySide2.QtWidgets import *
 from PySide2.QtCore import *
 from PySide2.QtGui import *
@@ -74,7 +74,7 @@ class FileIconProvider(QFileIconProvider):
         if isinstance(parameter, QFileInfo):
             info = parameter
             if info.suffix() == "nk" or info.suffix() == "nk~":
-                return  QIcon("{}/icons/NukeXApp.ico".format(os.path.dirname(__file__)))
+                return  QIcon("{}/icons/Nuke.png".format(os.path.dirname(__file__)))
         return super(FileIconProvider, self).icon(parameter)
 
 
